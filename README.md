@@ -21,8 +21,8 @@ contact
 </summary>
 
 <br >
-masters degree in software engineering from university of scranton
-bachelor degree in information technology from prince muhammed university
+masters degree in software engineering from university of scranton <br>
+bachelor degree in information technology from prince muhammed university<br>
 </details>
 
 
