@@ -19,7 +19,10 @@ contact
 <summary>
   More stuff about me
 </summary>
-</details>
 
+<br >
+masters degree in software engineering from university of scranton
+bachelor degree in information technology from prince muhammed university
+</details>
 
 
