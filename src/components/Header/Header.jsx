@@ -4,10 +4,8 @@ import {BiPhoneCall} from 'react-icons/bi'
 import { motion } from 'framer-motion'
 const Header = () => {
   return (
-    <motion.div
-    initial="hiden"
-    whileInView="show"
-    variants={headervariants}
+    <div
+ 
      className={css.wrapper}>
     <div className={`paddings ${css.container}`}>
       <div className ={` flexCenter innerWidth ${css.name}`}>
@@ -22,7 +20,7 @@ const Header = () => {
     </li>
   </ul>
     </div>
-    </motion.div>
+    </div>
   )
 }
 
