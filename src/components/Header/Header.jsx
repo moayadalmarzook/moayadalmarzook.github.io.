@@ -1,45 +1,59 @@
-import React, { useState } from 'react'
-import css from './Header.module.scss'
-import {BiMenuAltRight, BiPhoneCall} from 'react-icons/bi'
-import { motion } from 'framer-motion'
-import { getMenuStyles, headerVariants } from '../../utils/motion'
-import useHeaderShadow from "../../hooks/useHeaderShadow"
+import React, { useEffect, useRef, useState } from "react";
+import css from "./Header.module.scss";
+import { BiPhoneCall, BiMenuAltRight } from "react-icons/bi";
+import { motion } from "framer-motion";
+import { getMenuStyles, headerVariants } from "../../utils/motion";
+import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import useHeaderShadow from "../../hooks/useHeaderShadow";
+
 const Header = () => {
-  const [menuOpen, setMenuOpened]= useState(false);
-  const headerShadow = useHeaderShadow()
+  const menuRef = useRef(null);
+  const [menuOpened, setMenuOpened] = useState(false);
+  const headerShadow = useHeaderShadow();
+
+  //to handle click outside of sidebar on mobile
+  useOutsideAlerter({
+    menuRef,
+    setMenuOpened,
+  });
+
   return (
     <motion.div
-    initial="hidden"
-    whileInView="show"
-    variants={headerVariants}
-    viewport={{once: false, amount:0.25}}
-     className={css.wrapper}>
-    <div className={`paddings ${css.container}`
-  }
-  style={{boxShadow:headerShadow}}
-  >
-      <div className ={` flexCenter innerWidth ${css.name}`}>
-        Moayad Almarzook
+      variants={headerVariants}
+      initial="hidden"
+      whileInView="show"
+      className={`bg-primary paddings ${css.wrapper}`}
+      viewport={{ once: true, amount: 0.25 }}
+      style={{boxShadow: headerShadow}}
+    >
+      <div className={`innerWidth ${css.container} flexCenter`}>
+        <div className={css.name}>Moayad almarzook</div>
+        <ul
+          className={`flexCenter ${css.menu}`}
+          ref={menuRef}
+          style={getMenuStyles(menuOpened)}
+        >
+          <li><a href="#experties">About Me</a></li>
+          <li><a href="#work">Experience</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#people">Testimonials</a></li>
+          <li><a href=".\public\moayad_almarzook_CV23.pdf" download="CV" class="logo">Resume/CV</a></li>
+          <li className={`flexCenter ${css.phone}`}>
+            <p>+966547757402</p>
+            <BiPhoneCall size={"40px"} />
+          </li>
+        </ul>
+
+        {/* for medium and small screens */}
+        <div
+          className={css.menuIcon}
+          onClick={() => setMenuOpened((prev) => !prev)}
+        >
+          <BiMenuAltRight size={30} />
+        </div>
       </div>
-  <ul
-  // style={getMenuStyles(menuOpened)}
-  className = {`flexCenter ${css.menu}`}>
-    <li><a href="">Services</a></li>
-    <li><a href="">experince</a></li>
-    <li><a href="">testimonials</a></li>
-    <li className={`flexCenter ${css.phone}`}><p>+9660547757402</p>
-    <BiPhoneCall size={"40px"}></BiPhoneCall>
-    </li>
-  </ul>
-  <div className={css.menuIcon}
-  onClick={()=>setMenuOpened((prev)=>!prev)}
-  >
-
-    <BiMenuAltRight size={30}/>
-    </div>
-    </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
