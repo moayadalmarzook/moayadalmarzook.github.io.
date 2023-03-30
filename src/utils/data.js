@@ -23,8 +23,7 @@ export const projectExperience = [
 ];
 
 export const WhatDoIHelp = [
-  "I will help you with finging a solution and solve your problem, We use process design to create digital products. Besides that also help their business.",
-  "We use process design to create digital products. Besides that also help their business",
+  "Obtained a master's degree in software Engineering from the University of Scranton. I am skilled in a variety of technologies including React.js, Node.js, Next.js, Java, Graph QL, C++ and Python. as well as structural quarries such as SQL, Mango DB and Oracle. Experienced as a technical support engineer and customer support."
 ];
 
 export const workExp = [

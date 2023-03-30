@@ -28,7 +28,8 @@ const Footer = () => {
         <div className={css.right}>
           <div className={css.info}>
             <span className="secondaryText">Information</span>
-            <p>145 New York, FL 5467, USA</p>
+            <p>Dammam, Saudi Arabia</p>
+            <p>Phone: +966547757402</p>
           </div>
           <ul className={css.menu}>
             <li>Services</li>
